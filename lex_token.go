@@ -45,3 +45,72 @@ const (
 	tokenLSM                        // LSM
 	tokenBPTree                     // B+ tree
 )
+
+var tokenToString = map[tokenType]string{
+	tokenError:            "error",
+	tokenSpace:            "spqce",
+	tokenIdentifier:       "identifier",
+	tokenEnd:              "end",
+	tokenEquals:           "equals",
+	tokenAssign:           "assign",
+	tokenDelimeter:        "delimeter",
+	tokenLeftParenthesis:  "leftParenthesis",
+	tokenRightParenthesis: "rightParenthesis",
+	tokenInteger:          "integer",
+	tokenString:           "string",
+	tokenAnd:              "AND",
+	tokenInsert:           "INSERT",
+	tokenInto:             "INTO",
+	tokenSelect:           "SELECT",
+	tokenDelete:           "DELETD",
+	tokenFrom:             "FROM",
+	tokenWhere:            "WHERE",
+	tokenLimit:            "LIMIT",
+	tokenValues:           "VALUES",
+	tokenUpdate:           "UPDATE",
+	tokenSet:              "SET",
+	tokenCreate:           "CREATE",
+	tokenDrop:             "DROP",
+	tokenTable:            "TABLE",
+	tokenTypeInteger:      "typeInteger",
+	tokenTypeString:       "typeString",
+	tokenEngine:           "ENGINE",
+	tokenLSM:              "LSM",
+	tokenBPTree:           "BPTree",
+}
+
+func (t tokenType) String() string {
+	s, defined := tokenToString[t]
+	if defined {
+		return s
+	}
+	return "unknown"
+}
+
+const end = -1
+
+/*
+	tokenAnd:              "AND",
+	tokenInsert:           "INSERT",
+	tokenInto:             "INTO",
+	tokenSelect:           "SELECT",
+	tokenDelete:           "DELETD",
+	tokenFrom:             "FROM",
+	tokenWhere:            "WHERE",
+	tokenLimit:            "LIMIT",
+	tokenValues:           "VALUES",
+	tokenUpdate:           "UPDATE",
+	tokenSet:              "SET",
+	tokenCreate:           "CREATE",
+	tokenDrop:             "DROP",
+	tokenTable:            "TABLE",
+	tokenTypeInteger:      "typeInteger",
+	tokenTypeString:       "typeString",
+	tokenEngine:           "ENGINE",
+	tokenLSM:              "LSM",
+	tokenBPTree:           "BPTree",
+*/
+
+var keyWords = map[string]tokenType{
+	"": tokenAnd,
+}

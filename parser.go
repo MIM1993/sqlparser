@@ -5,3 +5,13 @@
 @Software: GoLand
 */
 package sqlparser
+
+type parser struct {
+	lexer *lexer
+
+	//statement Statement
+
+	err error
+}
+
+
